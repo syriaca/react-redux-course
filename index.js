@@ -5,11 +5,14 @@ import { createStore } from 'redux';
 import PlayerReducer from './src/reducers/player';
 import Scoreboard from './src/containers/Scoreboard';
 
-const store = createStore(PlayerReducer);
+const store = createStore(
+  PlayerReducer,
+  window.devToolsExtension && window.devToolsExtension()
+);
 
 render(
-    <Provider store={store}>
-        <Scoreboard />
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <Scoreboard />
+  </Provider>,
+  document.getElementById('root')
 );
